@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Main from 'Timer';
+import Timer from 'Timer';
 
 describe('Timer component', () => {
   it('renders correctly', () => {

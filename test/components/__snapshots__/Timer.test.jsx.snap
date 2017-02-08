@@ -1,0 +1,10 @@
+exports[`Timer component renders correctly 1`] = `
+<div>
+  <p>
+    Timer component
+  </p>
+  <div>
+    This is my clock
+  </div>
+</div>
+`;

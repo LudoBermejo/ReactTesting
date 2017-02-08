@@ -1,0 +1,7 @@
+exports[`Countdown component renders correctly 1`] = `
+<div>
+  <p>
+    Countdown component
+  </p>
+</div>
+`;

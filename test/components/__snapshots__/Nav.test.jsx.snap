@@ -9,16 +9,14 @@ exports[`Nav renders correctly 1`] = `
         className="menu-text">
         React Timer App
       </li>
-      <li
-        className="menu-text">
+      <li>
         <a
           onClick={[Function]}
           style={Object {}}>
           Timer
         </a>
       </li>
-      <li
-        className="menu-text">
+      <li>
         <a
           onClick={[Function]}
           style={Object {}}>

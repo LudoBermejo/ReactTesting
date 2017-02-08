@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Main from 'Countdown';
+import Countdown from 'Countdown';
 
 describe('Countdown component', () => {
   it('renders correctly', () => {
