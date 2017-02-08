@@ -6,15 +6,15 @@ const Nav = () => (
     <div className="top-bar-left">
       <ul className="menu">
         <li className="menu-text">React Timer App</li>
-        <li className="menu-text">
+        <li>
           <IndexLink
             to="/"
             activeClassName="active-link"
           >Timer</IndexLink>
         </li>
-        <li className="menu-text">
+        <li>
           <Link
-            to="/a"
+            to="/countdown"
             activeClassName="active-link"
           >Countdown</Link>
         </li>

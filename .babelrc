@@ -2,11 +2,13 @@
   "presets": ["es2015", "react"],
   "plugins": [
     ["module-resolver", {
-      "root": ["./"],
+      "root": ["../"],
       "alias": {
         "Main": "./app/components/Main.jsx",
         "Nav": "./app/components/Nav.jsx",
-        "AppStyles": "./app/styles/app.scss"
+        "AppStyles": "./app/styles/app.scss",
+        "Timer": "app/components/Timer.jsx",
+        "Countdown": "app/components/Countdown.jsx"
       }
     }]
   ]
