@@ -1,0 +1,13 @@
+{
+  "presets": ["es2015", "react"],
+  "plugins": [
+    ["module-resolver", {
+      "root": ["./"],
+      "alias": {
+        "Main": "./app/components/Main.jsx",
+        "Nav": "./app/components/Nav.jsx",
+        "AppStyles": "./app/styles/app.scss"
+      }
+    }]
+  ]
+}
