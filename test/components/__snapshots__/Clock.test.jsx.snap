@@ -1,5 +1,9 @@
 exports[`Clock component renders correctly 1`] = `
-<div>
-  This is my clock
+<div
+  className="clock">
+  <span
+    className="clock-text">
+    00:00
+  </span>
 </div>
 `;

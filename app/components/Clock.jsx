@@ -13,15 +13,29 @@ Number.prototype.padZero = function (len, c) {
 };
 
 export default class Clock extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
   formatSeconds(totalSeconds) {
-    if (!totalSeconds || typeof (totalSeconds) !== 'number') return false;
+    if (typeof (totalSeconds) !== 'number') return false;
     const seconds = (totalSeconds % 60).padZero(2);
     const minutes = Math.floor(totalSeconds / 60).padZero(2);
     return `${minutes}:${seconds}`;
   }
   render() {
+    const totalSeconds = this.formatSeconds(this.props.totalSeconds);
     return (
-      <div>This is my clock</div>
+      <div className="clock">
+        <span className="clock-text">
+          {totalSeconds}
+        </span>
+      </div>
     );
   }
 }
+
+
+Clock.propTypes = {
+  totalSeconds: React.PropTypes.number.isRequired
+};

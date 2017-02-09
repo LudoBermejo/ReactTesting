@@ -1,7 +1,24 @@
 exports[`Countdown component renders correctly 1`] = `
 <div>
-  <p>
-    Countdown component
-  </p>
+  <div
+    className="clock">
+    <span
+      className="clock-text">
+      00:00
+    </span>
+  </div>
+  <div>
+    <form
+      onSubmit={[Function]}>
+      <input
+        placeholder="Enter type in seconds"
+        type="text" />
+      <button
+        className="button expanded"
+        type="submit">
+        Start
+      </button>
+    </form>
+  </div>
 </div>
 `;

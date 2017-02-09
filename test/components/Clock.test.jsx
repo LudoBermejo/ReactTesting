@@ -1,19 +1,19 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import TestUtils from 'react-addons-test-utils';
-
+import {shallow} from 'enzyme';
 import Clock from 'Clock';
 
 describe('Clock component', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(<Clock />).toJSON();
+    const tree = renderer.create(<Clock totalSeconds={0} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  describe('renderTime', () => {
+  describe('formatSeconds functions', () => {
     let clock;
     beforeEach(() => {
-      clock = TestUtils.renderIntoDocument(<Clock />);
+      clock = TestUtils.renderIntoDocument(<Clock totalSeconds={0} />);
     });
 
     it('returns false if empty string is sent', () => {
@@ -39,6 +39,12 @@ describe('Clock component', () => {
     it('returns valid data if more that 60 seconds is sent', () => {
       expect(clock.formatSeconds(140)).toBe('02:20');
     })
-
   });
+
+  describe('render', () => {
+    it('should render clock to output', () => {
+      let clock = shallow(<Clock totalSeconds={0} />);
+      expect(clock.text()).toEqual('00:00');
+    });
+  })
 });

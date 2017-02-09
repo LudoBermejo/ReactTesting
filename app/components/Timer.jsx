@@ -4,7 +4,7 @@ import Clock from 'Clock';
 const Timer = () => (
   <div>
     <p>Timer component</p>
-    <Clock />
+    <Clock totalSeconds={0} />
   </div>
 );
 

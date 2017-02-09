@@ -1,0 +1,15 @@
+exports[`Countdown form component renders correctly 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}>
+    <input
+      placeholder="Enter type in seconds"
+      type="text" />
+    <button
+      className="button expanded"
+      type="submit">
+      Start
+    </button>
+  </form>
+</div>
+`;
