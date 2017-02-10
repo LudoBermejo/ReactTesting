@@ -14,8 +14,16 @@ Number.prototype.padZero = function (len, c) {
 
 export default class Clock extends React.Component {
 
+  static propTypes: {
+    totalSeconds: React.PropTypes.number.isRequired
+  }
+
   constructor(props) {
     super(props);
+
+    this.state = {
+      currentSeconds: props.totalSeconds
+    }
   }
   formatSeconds(totalSeconds) {
     if (typeof (totalSeconds) !== 'number') return false;
@@ -36,6 +44,3 @@ export default class Clock extends React.Component {
 }
 
 
-Clock.propTypes = {
-  totalSeconds: React.PropTypes.number.isRequired
-};
