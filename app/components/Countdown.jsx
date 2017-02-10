@@ -34,7 +34,6 @@ export default class Countdown extends React.Component {
         totalSecondsToCount: total
       });
     }, 1000);
-    return total;
   }
 
   startCountDown(seconds) {
