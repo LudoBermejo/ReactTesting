@@ -14,7 +14,7 @@ Number.prototype.padZero = function (len, c) {
 
 export default class Clock extends React.Component {
 
-  static propTypes: {
+  static get propTypes() {
     totalSeconds: React.PropTypes.number.isRequired
   }
 
