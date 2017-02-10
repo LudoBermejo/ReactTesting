@@ -5,10 +5,7 @@ import CountdownForm from 'CountdownForm';
 
 describe('Countdown form component', () => {
   it('renders correctly', () => {
-    function itRenders() {
-
-    }
-    const tree = renderer.create(<CountdownForm onStartCountdown={itRenders} />).toJSON();
+    const tree = renderer.create(<CountdownForm onStartCountdown={() => {}} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
