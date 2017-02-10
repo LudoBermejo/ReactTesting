@@ -1,6 +1,7 @@
 import React from 'react';
 import Clock from 'Clock';
 import CountdownForm from 'CountdownForm';
+import CountdownControls from 'CountdownControls';
 
 export default class Countdown extends React.Component {
 
@@ -12,6 +13,8 @@ export default class Countdown extends React.Component {
     };
     this.startCountDown = this.startCountDown.bind(this);
     this.startTimer = this.startTimer.bind(this);
+    this.renderFormOnlyIfStopped = this.renderFormOnlyIfStopped.bind(this);
+    this.renderControlsIfNotStopped = this.renderControlsIfNotStopped.bind(this);
     this.timer = null;
   }
 
@@ -47,7 +50,6 @@ export default class Countdown extends React.Component {
       }
 
       this.setState(state);
-
     }, 1000);
   }
 
@@ -58,11 +60,34 @@ export default class Countdown extends React.Component {
     });
   }
 
+  renderFormOnlyIfStopped() {
+    if (this.state.currentStatus === 'stopped') {
+      return <CountdownForm onStartCountdown={this.startCountDown} />;
+    }
+    return '';
+  }
+
+  renderControlsIfNotStopped() {
+    if (this.state.currentStatus !== 'stopped') {
+      return (
+        <CountdownControls
+          countdownStatus={this.state.currentStatus}
+          onClickPause={() => {}}
+          onClickResume={() => {}}
+          onClickStop={() => {}}
+        />
+      );
+    }
+    return '';
+  }
+
+
   render() {
     return (
       <div>
         <Clock totalSeconds={this.state.totalSecondsToCount} />
-        <CountdownForm onStartCountdown={this.startCountDown} />
+        { this.renderFormOnlyIfStopped() }
+        { this.renderControlsIfNotStopped(this.state.currentStatus) }
       </div>
     );
   }

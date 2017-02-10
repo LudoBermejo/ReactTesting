@@ -1,0 +1,17 @@
+exports[`Countdown form component renders correctly 1`] = `
+<div
+  className="controls">
+  <button
+    className="button secondary"
+    id="btnPause"
+    onClick={undefined}>
+    Pause
+  </button>
+  <button
+    className="button alert"
+    id="btnClear"
+    onClick={undefined}>
+    Clear
+  </button>
+</div>
+`;
