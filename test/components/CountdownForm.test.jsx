@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import CountdownForm from 'CountdownForm';
 
 describe('Countdown form component', () => {
@@ -12,22 +12,30 @@ describe('Countdown form component', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('not launch function if invalid value is sent', () => {
+  it('not launch function if no value', () => {
     const onButtonClick = jest.fn();
-
-    const countdownForm = shallow(<CountdownForm onStartCountdown={onButtonClick} />);
-    countdownForm.find('button').simulate('click');
+    const countdownForm = mount(<CountdownForm onStartCountdown={onButtonClick} />);
+    countdownForm.find('form').simulate('submit');
     expect(onButtonClick).not.toHaveBeenCalled();
   });
 
-  it('not launch function if valid value is sent', () => {
+  it('not launch function if invalid value is sent', () => {
     const onButtonClick = jest.fn();
-
     const countdownForm = mount(<CountdownForm onStartCountdown={onButtonClick} />);
-    console.log(countdownForm.ref('input').get(0));
-    console.log(countdownForm.find('input').get(0).value);
+    const first = countdownForm.find('input');
+    first.node.value = "fff";
+    first.simulate('change', first);
+    countdownForm.find('form').simulate('submit');
+    expect(onButtonClick).not.toHaveBeenCalled();
+  });
 
-    countdownForm.find('button').simulate('click');
+  it('launch function if valid value is sent', () => {
+    const onButtonClick = jest.fn();
+    const countdownForm = mount(<CountdownForm onStartCountdown={onButtonClick} />);
+    const first = countdownForm.find('input');
+    first.node.value = 123;
+    first.simulate('change', first);
+    countdownForm.find('form').simulate('submit');
     expect(onButtonClick).toHaveBeenCalled();
    });
 });

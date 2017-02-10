@@ -1,6 +1,5 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import TestUtils from 'react-addons-test-utils';
 import {shallow} from 'enzyme';
 import Clock from 'Clock';
 
@@ -13,31 +12,31 @@ describe('Clock component', () => {
   describe('formatSeconds functions', () => {
     let clock;
     beforeEach(() => {
-      clock = TestUtils.renderIntoDocument(<Clock totalSeconds={0} />);
+      clock = shallow(<Clock totalSeconds={0}/>);
     });
 
     it('returns false if empty string is sent', () => {
-      expect(clock.formatSeconds('')).toBeFalsy();
+      expect(clock.instance().formatSeconds('')).toBeFalsy();
     });
 
     it('returns false if string is sent', () => {
-      expect(clock.formatSeconds('demo')).toBeFalsy();
+      expect(clock.instance().formatSeconds('demo')).toBeFalsy();
     });
 
     it('returns false if array is sent', () => {
-      expect(clock.formatSeconds([])).toBeFalsy();
+      expect(clock.instance().formatSeconds([])).toBeFalsy();
     });
 
     it('returns valid data if less that 10 seconds is sent', () => {
-      expect(clock.formatSeconds(9)).toBe('00:09');
+      expect(clock.instance().formatSeconds(9)).toBe('00:09');
     })
 
     it('returns valid data if less that 60 seconds is sent', () => {
-      expect(clock.formatSeconds(50)).toBe('00:50');
+      expect(clock.instance().formatSeconds(50)).toBe('00:50');
     })
 
     it('returns valid data if more that 60 seconds is sent', () => {
-      expect(clock.formatSeconds(140)).toBe('02:20');
+      expect(clock.instance().formatSeconds(140)).toBe('02:20');
     })
   });
 
