@@ -23,7 +23,7 @@ describe('Countdown form component', () => {
     const onButtonClick = jest.fn();
     const countdownForm = mount(<CountdownForm onStartCountdown={onButtonClick} />);
     const first = countdownForm.find('input');
-    first.node.value = "fff";
+    first.node.value = 'fff';
     first.simulate('change', first);
     countdownForm.find('form').simulate('submit');
     expect(onButtonClick).not.toHaveBeenCalled();
