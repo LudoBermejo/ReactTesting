@@ -21,18 +21,33 @@ export default class Countdown extends React.Component {
         case 'started':
           this.startTimer();
           break;
+        case 'stopped':
+          this.stopTimer();
+          break;
         default: break;
       }
     }
+  }
+
+  stopTimer() {
+    clearInterval(this.timer);
   }
 
   startTimer() {
     this.timer = setInterval(() => {
       let total = this.state.totalSecondsToCount;
       total = (total - 1 >= 0) ? total - 1 : 0;
-      this.setState({
+
+      const state = {
         totalSecondsToCount: total
-      });
+      };
+
+      if (!total) {
+        state.currentStatus = 'stopped';
+      }
+
+      this.setState(state);
+
     }, 1000);
   }
 
