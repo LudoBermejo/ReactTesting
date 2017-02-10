@@ -15,6 +15,7 @@ export default class Countdown extends React.Component {
     this.startTimer = this.startTimer.bind(this);
     this.renderFormOnlyIfStopped = this.renderFormOnlyIfStopped.bind(this);
     this.renderControlsIfNotStopped = this.renderControlsIfNotStopped.bind(this);
+    this.onStatusChange = this.onStatusChange.bind(this);
     this.timer = null;
   }
 
@@ -25,6 +26,12 @@ export default class Countdown extends React.Component {
           this.startTimer();
           break;
         case 'stopped':
+          this.setState({
+            totalSecondsToCount: 0
+          });
+          this.stopTimer();
+          break;
+        case 'paused':
           this.stopTimer();
           break;
         default: break;
@@ -32,8 +39,21 @@ export default class Countdown extends React.Component {
     }
   }
 
-  stopTimer() {
-    clearInterval(this.timer);
+  componentWillUnmount() {
+    this.stopTimer();
+  }
+
+  onStatusChange(newStatus) {
+    this.setState({
+      currentStatus: newStatus
+    });
+  }
+
+  startCountDown(seconds) {
+    this.setState({
+      totalSecondsToCount: seconds,
+      currentStatus: 'started'
+    });
   }
 
   startTimer() {
@@ -53,11 +73,9 @@ export default class Countdown extends React.Component {
     }, 1000);
   }
 
-  startCountDown(seconds) {
-    this.setState({
-      totalSecondsToCount: seconds,
-      currentStatus: 'started'
-    });
+  stopTimer() {
+    clearInterval(this.timer);
+    this.timer = null;
   }
 
   renderFormOnlyIfStopped() {
@@ -72,9 +90,7 @@ export default class Countdown extends React.Component {
       return (
         <CountdownControls
           countdownStatus={this.state.currentStatus}
-          onClickPause={() => {}}
-          onClickResume={() => {}}
-          onClickStop={() => {}}
+          onStatusChange={this.onStatusChange}
         />
       );
     }

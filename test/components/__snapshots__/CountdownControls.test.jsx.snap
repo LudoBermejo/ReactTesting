@@ -1,16 +1,16 @@
-exports[`Countdown form component renders correctly 1`] = `
+exports[`Countdown controls component renders correctly 1`] = `
 <div
   className="controls">
   <button
     className="button secondary"
     id="btnPause"
-    onClick={undefined}>
+    onClick={[Function]}>
     Pause
   </button>
   <button
     className="button alert"
     id="btnClear"
-    onClick={undefined}>
+    onClick={[Function]}>
     Clear
   </button>
 </div>

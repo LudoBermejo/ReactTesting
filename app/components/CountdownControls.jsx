@@ -5,6 +5,13 @@ export default class CountdownControls extends React.Component {
   constructor(props) {
     super(props);
     this.renderStartStopButton = this.renderStartStopButton.bind(this);
+    this.onChangeStatus = this.onChangeStatus.bind(this);
+  }
+
+  onChangeStatus(newStatus) {
+    return () => {
+      this.props.onStatusChange(newStatus);
+    };
   }
 
   renderStartStopButton(countdownStatus) {
@@ -13,7 +20,7 @@ export default class CountdownControls extends React.Component {
         <button
           id="btnPause"
           className="button secondary"
-          onClick={this.props.onClickPause()}
+          onClick={this.onChangeStatus('paused')}
         >Pause</button>
       );
     } else if (countdownStatus === 'paused') {
@@ -21,7 +28,7 @@ export default class CountdownControls extends React.Component {
         <button
           id="btnResume"
           className="button primary"
-          onClick={this.props.onClickResume()}
+          onClick={this.onChangeStatus('started')}
         >Resume</button>
       );
     }
@@ -36,7 +43,7 @@ export default class CountdownControls extends React.Component {
         <button
           id="btnClear"
           className="button alert"
-          onClick={this.props.onClickStop()}
+          onClick={this.onChangeStatus('stopped')}
         >Clear</button>
       </div>
     );
@@ -45,7 +52,5 @@ export default class CountdownControls extends React.Component {
 
 CountdownControls.propTypes = {
   countdownStatus: React.PropTypes.string.isRequired,
-  onClickPause: React.PropTypes.func.isRequired,
-  onClickResume: React.PropTypes.func.isRequired,
-  onClickStop: React.PropTypes.func.isRequired
+  onStatusChange: React.PropTypes.func.isRequired,
 };

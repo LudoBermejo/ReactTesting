@@ -5,7 +5,7 @@ export default class CountdownForm extends React.Component {
   constructor(props) {
     super(props);
     this.onSubmitForm = this.onSubmitForm.bind(this);
-   }
+  }
 
   onSubmitForm(e) {
     e.preventDefault();
@@ -24,8 +24,7 @@ export default class CountdownForm extends React.Component {
           <input
             type="text"
             placeholder="Enter type in seconds"
-            ref={(input) =>
-            {
+            ref={(input) => {
               this.textInput = input;
             }}
           />
