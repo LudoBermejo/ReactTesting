@@ -12,7 +12,8 @@
         "Countdown2": "./app/components/Countdown.jsx",
         "Clock": "./app/components/Clock.jsx",
         "CountdownForm": "./app/components/CountdownForm.jsx",
-        "CountdownControls": "./app/components/CountdownControls.jsx"
+        "CountdownControls": "./app/components/CountdownControls.jsx",
+        "TimerControls": "./app/components/TimerControls.jsx"
       }
     }]
   ]

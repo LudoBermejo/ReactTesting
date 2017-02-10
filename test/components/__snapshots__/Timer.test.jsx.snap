@@ -1,14 +1,26 @@
 exports[`Timer component renders correctly 1`] = `
 <div>
-  <p>
-    Timer component
-  </p>
   <div
     className="clock">
     <span
       className="clock-text">
       00:00
     </span>
+  </div>
+  <div
+    className="controls">
+    <button
+      className="button primary"
+      id="btnStart"
+      onClick={[Function]}>
+      Start
+    </button>
+    <button
+      className="button secondary"
+      id="btnStop"
+      onClick={[Function]}>
+      Clear
+    </button>
   </div>
 </div>
 `;

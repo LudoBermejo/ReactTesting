@@ -1,0 +1,17 @@
+exports[`Timer controls component renders correctly 1`] = `
+<div
+  className="controls">
+  <button
+    className="button principal"
+    id="btnPause"
+    onClick={[Function]}>
+    Stop
+  </button>
+  <button
+    className="button secondary"
+    id="btnStop"
+    onClick={[Function]}>
+    Clear
+  </button>
+</div>
+`;
