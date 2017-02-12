@@ -33,10 +33,10 @@
     "node-sass": "^4.5.0",
     "react-addons-test-utils": "^15.4.2",
     "react-test-renderer": "^15.4.2",
-    "sass-loader": "^5.0.0",
+    "sass-loader": "^5.0.1",
     "script-loader": "^0.7.0",
     "style-loader": "^0.13.1",
-    "webpack": "^1.12.13"
+    "webpack": "^1.14.0"
   },
   "jest": {
     "moduleFileExtensions": [

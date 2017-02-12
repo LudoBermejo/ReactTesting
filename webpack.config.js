@@ -1,4 +1,7 @@
 const webpack = require('webpack');
+const path = require('path');
+
+console.log(path.resolve(__dirname, './node_modules/foundation-sites/scss'));
 
 module.exports = {
   entry: [
@@ -21,6 +24,7 @@ module.exports = {
   },
   resolve: {
     root: __dirname,
+    modulesDirectories: ['./bower_components', 'node_modules'],
     alias: {
       Main: 'app/components/Main.jsx',
       Nav: 'app/components/Nav.jsx',
@@ -43,8 +47,15 @@ module.exports = {
         },
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/
+      },
+      {
+        test: /\.scss$/,
+        loaders: ['style- loader', 'css-loader', 'sass-loader']
       }
     ]
+  },
+  sassLoader: { // It's not working at all :(
+    includePaths: [path.resolve(__dirname, './node_modules/foundation-sites/scss')]
   },
   devtool: 'cheap-module-eval-source-map'
 };
